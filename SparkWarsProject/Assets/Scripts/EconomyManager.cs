@@ -5,10 +5,10 @@ using UnityEngine;
 public class EconomyManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    int Energy;
+    int energy;
     void Start()
     {
-        Energy = 0;
+        energy = 0;
     }
 
     // Update is called once per frame
@@ -19,12 +19,19 @@ public class EconomyManager : MonoBehaviour
 
     public void setEnergy()
     {
-        Energy++;
+        energy++;
     }
 
-    public void buySpark()
+    public int buySpark()
     {
-        Energy = 0;
+        int power=0;
+        if(energy >= 3)
+            power = 3;
+        else if(energy >= 5)
+            power = 5;
+        else if (energy >= 7)
+            power = 5;
+        energy -= power;
+        return power;
     }
-
 }
