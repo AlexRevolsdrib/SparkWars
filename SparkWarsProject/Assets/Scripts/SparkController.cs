@@ -10,19 +10,25 @@ public class SparkController : MonoBehaviour
     public TrackController track;
     private int numberPoint;
     public int energy;
+
     void Start()
     {
         
         if(transform.tag == "PlayerSpark")
             numberPoint = 0;
         else if(transform.tag == "EnemySpark")
-            numberPoint =track.points.Length - 1;
+            numberPoint = track.points.Length - 1;
         target = track.points[numberPoint];
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(target == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
         if(Vector3.Distance(transform.position, target.position)<=0.2f)
@@ -67,16 +73,23 @@ public class SparkController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if((collision.gameObject.CompareTag("EnemySpark") && gameObject.CompareTag("PlayerSpark"))||(gameObject.CompareTag("EnemySpark") && collision.gameObject.CompareTag("PlayerSpark")))
+        if(collision.gameObject.CompareTag("EnemySpark"))
         {
             int damage = collision.gameObject.GetComponent<SparkController>().energy;
-            energy -= damage;
-            if(energy<=0)
+          
+            if (damage - energy <= 0)
+            {
+                
+                Destroy(collision.gameObject);
+            }
+            if (energy - damage <= 0)
             {
                 Destroy(gameObject);
             }
+            energy -= damage;
+
         }
-        Debug.Log("poo");
+        
 
     }
 }

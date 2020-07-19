@@ -23,10 +23,12 @@ public class TapController : MonoBehaviour
         int power = economyManager.buySpark();
         if (power!=0)
         {
-             sparkController.setEnergy(power);
-            sparkController.track = track;
-            sparkController.transform.tag = "PlayerSpark";
-            Instantiate(sparkController, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            SparkController spark = Instantiate(sparkController, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+
+            spark.setEnergy(power);
+            spark.track = track;
+            spark.transform.tag = "PlayerSpark";
+            
         }
         
     }

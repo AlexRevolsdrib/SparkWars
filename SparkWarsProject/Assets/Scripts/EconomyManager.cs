@@ -26,12 +26,12 @@ public class EconomyManager : MonoBehaviour
     public int buySpark()
     {
         int power=0;
-        if(energy >= 3)
-            power = 3;
+        if(energy >= 7)
+            power = 7;
         else if(energy >= 5)
             power = 5;
-        else if (energy >= 7)
-            power = 5;
+        else if (energy >= 3)
+            power = 3;
         energy -= power;
         return power;
     }

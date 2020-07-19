@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySparcs : MonoBehaviour
 {
-    public TrackController track;
+    public TrackController[] tracks;
     public SparkController sparkController;
     private bool runingCoroutine;
     // Start is called before the first frame update
@@ -28,11 +28,12 @@ public class EnemySparcs : MonoBehaviour
     IEnumerator CreateSpark()
     {
         
-            sparkController.setEnergy(10);
-            sparkController.track = track;
-            sparkController.transform.tag = "EnemySpark";
-            yield return new WaitForSeconds(2f);
-        Instantiate(sparkController, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            
+        yield return new WaitForSeconds(Random.Range(0f, 2f));
+        SparkController spark = Instantiate(sparkController, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        spark.setEnergy(Random.Range(1, 11));
+        spark.track = tracks[Random.Range(0, 3)];
+        spark.transform.tag = "EnemySpark";
         runingCoroutine = false;
     }
 }
