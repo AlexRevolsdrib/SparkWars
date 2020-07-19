@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoreController : MonoBehaviour
+public class EconomyManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public EconomyManager economyManager;
+    int Energy;
     void Start()
     {
-        
+        Energy = 0;
     }
 
     // Update is called once per frame
@@ -17,9 +17,14 @@ public class CoreController : MonoBehaviour
         
     }
 
-    private void OnMouseDown()
+    public void setEnergy()
     {
-        economyManager.setEnergy();
+        Energy++;
+    }
+
+    public void buySpark()
+    {
+        Energy = 0;
     }
 
 }
