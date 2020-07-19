@@ -8,12 +8,16 @@ public class SparkController : MonoBehaviour
     public float speed = 5f;
     private Transform target;
     public TrackController track;
-    private int numberPoint = 0;
+    private int numberPoint;
     public int energy;
     void Start()
     {
-        numberPoint = 0;
-        target = track.points[0];
+        
+        if(transform.tag == "PlayerSpark")
+            numberPoint = 0;
+        else if(transform.tag == "EnemySpark")
+            numberPoint =track.points.Length - 1;
+        target = track.points[numberPoint];
     }
 
     // Update is called once per frame
@@ -28,20 +32,51 @@ public class SparkController : MonoBehaviour
     }
 
     void GetNextPoint()
-    { 
-        if(numberPoint >= track.points.Length-1)
+    {
+        if (transform.tag == "PlayerSpark")
         {
-            Destroy(gameObject);
+            if (numberPoint >= track.points.Length - 1)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                numberPoint++;
+                target = track.points[numberPoint];
+            }
         }
         else
         {
-            numberPoint++;
-            target = track.points[numberPoint];
+            if (numberPoint <= 0)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                numberPoint--;
+                target = track.points[numberPoint];
+            }
         }
+            
         
     }
     public void setEnergy(int power)
     {
         energy = power;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if((collision.gameObject.CompareTag("EnemySpark") && gameObject.CompareTag("PlayerSpark"))||(gameObject.CompareTag("EnemySpark") && collision.gameObject.CompareTag("PlayerSpark")))
+        {
+            int damage = collision.gameObject.GetComponent<SparkController>().energy;
+            energy -= damage;
+            if(energy<=0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        Debug.Log("poo");
+
     }
 }

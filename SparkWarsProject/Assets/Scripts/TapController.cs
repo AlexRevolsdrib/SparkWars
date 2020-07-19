@@ -10,7 +10,7 @@ public class TapController : MonoBehaviour
     public SparkController sparkController;
     void Start()
     {
-        sparkController.track = track;
+
     }
 
     // Update is called once per frame
@@ -23,7 +23,9 @@ public class TapController : MonoBehaviour
         int power = economyManager.buySpark();
         if (power!=0)
         {
-            sparkController.setEnergy(power);
+             sparkController.setEnergy(power);
+            sparkController.track = track;
+            sparkController.transform.tag = "PlayerSpark";
             Instantiate(sparkController, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         }
         

@@ -6,6 +6,7 @@ public class EconomyManager : MonoBehaviour
 {
     // Start is called before the first frame update
     int energy;
+    int healPower = 150;
     void Start()
     {
         energy = 0;
@@ -33,5 +34,10 @@ public class EconomyManager : MonoBehaviour
             power = 5;
         energy -= power;
         return power;
+    }
+
+    public void Damage(int damage)
+    {
+        healPower -= damage;
     }
 }
