@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SparkController : MonoBehaviour
 {
-    // Start is called before the first frame update
     public float speed = 5f;
-    private Transform target;
     public TrackController track;
-    private int numberPoint;
     public int energy;
+
+    private Transform target;
+    private int numberPoint;
 
     void Start()
     {
