@@ -12,12 +12,12 @@ public class TapController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        int power = economyManager.buySpark();
-        if (power!=0)
+        int sparkPrice = economyManager.BuySpark();
+        if (sparkPrice != 0)
         {
             SparkController spark = Instantiate(sparkPrefab, spawnPoint.position, Quaternion.identity);
 
-            spark.setEnergy(power);
+            spark.setEnergy(sparkPrice);
             spark.track = track;
             spark.transform.tag = "PlayerSpark";
             

@@ -5,39 +5,36 @@ using UnityEngine;
 public class EconomyManager : MonoBehaviour
 {
     // Start is called before the first frame update
+    public int firstSparkPrice = 1;
+    public int secondSparkPrice = 3;
+    public int thirdSparkPrice = 7;
+
     int energy;
-    int healPower = 150;
+
     void Start()
+    {
+        ResetEnergy();
+    }
+
+    public void ResetEnergy()
     {
         energy = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void AddEnergy(int amount = 1) {
+        energy += amount;
+	}
 
-    public void setEnergy()
-    {
-        energy++;
-    }
-
-    public int buySpark()
-    {
-        int power=0;
-        if(energy >= 7)
-            power = 7;
-        else if(energy >= 5)
-            power = 5;
-        else if (energy >= 3)
-            power = 3;
-        energy -= power;
-        return power;
-    }
-
-    public void Damage(int damage)
-    {
-        healPower -= damage;
-    }
+    public int BuySpark() {
+        int sparkPrice = 0;
+        if (energy >= thirdSparkPrice) {
+            sparkPrice = thirdSparkPrice;
+		} else if (energy >= secondSparkPrice) {
+            sparkPrice = secondSparkPrice;
+        } else if (energy >= firstSparkPrice) {
+            sparkPrice = firstSparkPrice;
+        }
+        energy -= sparkPrice;
+        return sparkPrice;
+	}
 }

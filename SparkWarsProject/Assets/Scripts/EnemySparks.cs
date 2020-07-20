@@ -6,34 +6,27 @@ public class EnemySparks : MonoBehaviour
 {
     public TrackController[] tracks;
     public SparkController sparkController;
-    private bool runingCoroutine;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    private bool isRunningCoroutine;
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        if (!runingCoroutine)
+        if (!isRunningCoroutine)
         {
             StartCoroutine("CreateSpark");
-            runingCoroutine = true;
+            isRunningCoroutine = true;
         }
 
     }
 
     IEnumerator CreateSpark()
     {
-
-
         yield return new WaitForSeconds(Random.Range(0f, 2f));
         SparkController spark = Instantiate(sparkController, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         spark.setEnergy(Random.Range(1, 11));
         spark.track = tracks[Random.Range(0, 3)];
         spark.transform.tag = "EnemySpark";
-        runingCoroutine = false;
+        isRunningCoroutine = false;
     }
 }

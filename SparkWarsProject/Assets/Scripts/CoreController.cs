@@ -8,7 +8,7 @@ public class CoreController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        economyManager.setEnergy();
+        economyManager.AddEnergy();
     }
 
 }
