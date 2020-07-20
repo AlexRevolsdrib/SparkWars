@@ -24,7 +24,7 @@ public class EnemySparks : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(0f, 2f));
         SparkController spark = Instantiate(sparkController, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        spark.setEnergy(Random.Range(1, 11));
+        spark.SetEnergy(Random.Range(1, 11));
         spark.track = tracks[Random.Range(0, 3)];
         spark.transform.tag = "EnemySpark";
         isRunningCoroutine = false;

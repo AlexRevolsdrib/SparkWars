@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PlayerSpark
   - EnemySpark
+  - PlayerCore
+  - EnemyCore
   layers:
   - Default
   - TransparentFX

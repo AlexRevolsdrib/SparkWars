@@ -17,7 +17,7 @@ public class TapController : MonoBehaviour
         {
             SparkController spark = Instantiate(sparkPrefab, spawnPoint.position, Quaternion.identity);
 
-            spark.setEnergy(sparkPrice);
+            spark.SetEnergy(sparkPrice);
             spark.track = track;
             spark.transform.tag = "PlayerSpark";
             

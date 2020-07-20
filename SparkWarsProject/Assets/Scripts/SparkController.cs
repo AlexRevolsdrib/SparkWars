@@ -14,7 +14,7 @@ public class SparkController : MonoBehaviour
     void Start()
     {
         
-        if(transform.tag == "PlayerSpark")
+        if(transform.CompareTag("PlayerSpark"))
             numberPoint = 0;
         else if(transform.tag == "EnemySpark")
             numberPoint = track.points.Length - 1;
@@ -39,26 +39,20 @@ public class SparkController : MonoBehaviour
 
     void GetNextPoint()
     {
-        if (transform.tag == "PlayerSpark")
-        {
-            if (numberPoint >= track.points.Length - 1)
-            {
+		if (transform.CompareTag("PlayerSpark")) {
+            if (numberPoint >= track.points.Length - 1) {
                 Destroy(gameObject);
             }
-            else
-            {
+            else {
                 numberPoint++;
                 target = track.points[numberPoint];
             }
         }
-        else
-        {
-            if (numberPoint <= 0)
-            {
+        else {
+            if (numberPoint <= 0) {
                 Destroy(gameObject);
             }
-            else
-            {
+            else {
                 numberPoint--;
                 target = track.points[numberPoint];
             }
@@ -66,30 +60,27 @@ public class SparkController : MonoBehaviour
             
         
     }
-    public void setEnergy(int power)
-    {
-        energy = power;
+    public void SetEnergy(int sparkPrice) {
+        energy = sparkPrice;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("EnemySpark"))
-        {
-            int damage = collision.gameObject.GetComponent<SparkController>().energy;
+    private void OnCollisionEnter(Collision collision) {
+        if(collision.gameObject.CompareTag("EnemySpark")) {
+            SparkController spark = collision.gameObject.GetComponent<SparkController>();
           
-            if (damage - energy <= 0)
-            {
-                
+            if (spark.energy - energy <= 0)
+            { 
                 Destroy(collision.gameObject);
             }
-            if (energy - damage <= 0)
+            if (energy - spark.energy <= 0)
             {
                 Destroy(gameObject);
             }
-            energy -= damage;
-
-        }
-        
-
+            energy -= spark.energy;
+        } else if (collision.gameObject.CompareTag("PlayerCore")) {
+            CoreController playerCore = collision.gameObject.GetComponent<CoreController>();
+            playerCore.GetDamage(energy);
+            Destroy(gameObject);
+		}
     }
 }
