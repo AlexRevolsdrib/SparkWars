@@ -64,10 +64,9 @@ public class SparkController : MonoBehaviour
         energy = sparkPrice;
     }
 
-    private void OnCollisionEnter(Collision collision) {
+    private void OnCollisionEnter2D(Collision2D collision) {
         if(collision.gameObject.CompareTag("EnemySpark")) {
             SparkController spark = collision.gameObject.GetComponent<SparkController>();
-          
             if (spark.energy - energy <= 0)
             { 
                 Destroy(collision.gameObject);
@@ -80,6 +79,10 @@ public class SparkController : MonoBehaviour
         } else if (collision.gameObject.CompareTag("PlayerCore")) {
             CoreController playerCore = collision.gameObject.GetComponent<CoreController>();
             playerCore.GetDamage(energy);
+            Destroy(gameObject);
+		} else if (collision.gameObject.CompareTag("EnemyCore")) {
+            EnemyCoreController enemyCore = collision.gameObject.GetComponent<EnemyCoreController>();
+            enemyCore.GetDamage(energy);
             Destroy(gameObject);
 		}
     }

@@ -802,7 +802,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sparkPrefab
       value: 
-      objectReference: {fileID: -3723441543222003675, guid: 0967fe4ef698ed343b54c0afb69487ad,
+      objectReference: {fileID: 4219102657387385725, guid: f6edc6e3c46b443ea9e681a150ad609a,
         type: 3}
     - target: {fileID: -1761085371944153087, guid: f882ded2f223ccd468d9143b189314d2,
         type: 3}
@@ -899,6 +899,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TapTrack 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592268298673853273, guid: f882ded2f223ccd468d9143b189314d2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f882ded2f223ccd468d9143b189314d2, type: 3}
@@ -1104,7 +1109,7 @@ MonoBehaviour:
   - {fileID: 319150313}
   - {fileID: 2081792218}
   - {fileID: 1389161879}
-  sparkController: {fileID: -3723441543222003675, guid: 0967fe4ef698ed343b54c0afb69487ad,
+  sparkController: {fileID: 4219102657387385725, guid: 76232406ffcf64c5eb9b3544d1df050d,
     type: 3}
 --- !u!4 &1076168579
 Transform:
@@ -1365,13 +1370,13 @@ GameObject:
   - component: {fileID: 1873669127}
   - component: {fileID: 1873669126}
   - component: {fileID: 1873669125}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyCore
   m_TagString: PlayerCore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1873669125
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1534,7 +1539,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sparkPrefab
       value: 
-      objectReference: {fileID: -3723441543222003675, guid: 0967fe4ef698ed343b54c0afb69487ad,
+      objectReference: {fileID: 4219102657387385725, guid: f6edc6e3c46b443ea9e681a150ad609a,
         type: 3}
     - target: {fileID: -1761085371944153087, guid: f882ded2f223ccd468d9143b189314d2,
         type: 3}
@@ -1636,6 +1641,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TapTrack 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592268298673853273, guid: f882ded2f223ccd468d9143b189314d2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f882ded2f223ccd468d9143b189314d2, type: 3}
@@ -1870,7 +1880,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sparkPrefab
       value: 
-      objectReference: {fileID: -3723441543222003675, guid: 0967fe4ef698ed343b54c0afb69487ad,
+      objectReference: {fileID: 4219102657387385725, guid: f6edc6e3c46b443ea9e681a150ad609a,
         type: 3}
     - target: {fileID: -1761085371944153087, guid: f882ded2f223ccd468d9143b189314d2,
         type: 3}
@@ -1967,6 +1977,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TapTrack 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592268298673853273, guid: f882ded2f223ccd468d9143b189314d2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f882ded2f223ccd468d9143b189314d2, type: 3}
@@ -2159,13 +2174,28 @@ PrefabInstance:
     - target: {fileID: 5630406225796446595, guid: 68a3b064971ed48468f8399fe53829ef,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5630406225796446595, guid: 68a3b064971ed48468f8399fe53829ef,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerCore
+      objectReference: {fileID: 0}
+    - target: {fileID: 5630406225796446595, guid: 68a3b064971ed48468f8399fe53829ef,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5630406225796446597, guid: 68a3b064971ed48468f8399fe53829ef,
         type: 3}
       propertyPath: economyManager
       value: 
       objectReference: {fileID: 2108070455}
+    - target: {fileID: 5630406225796446597, guid: 68a3b064971ed48468f8399fe53829ef,
+        type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 1475898182}
     - target: {fileID: 5630406225796446599, guid: 68a3b064971ed48468f8399fe53829ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2333,7 +2363,17 @@ PrefabInstance:
     - target: {fileID: 5817892702842581739, guid: 226208f9063084114bdc07ca7f915933,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5817892702842581739, guid: 226208f9063084114bdc07ca7f915933,
+        type: 3}
+      propertyPath: m_TagString
+      value: EnemyCore
+      objectReference: {fileID: 0}
+    - target: {fileID: 5817892702842581739, guid: 226208f9063084114bdc07ca7f915933,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5412547327147061814, guid: 226208f9063084114bdc07ca7f915933, type: 3}
@@ -2373,13 +2413,13 @@ GameObject:
   - component: {fileID: 7655788105279371199}
   - component: {fileID: 7655788105279371198}
   - component: {fileID: 7655788105279371200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerCore
   m_TagString: PlayerCore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &7655788105279371198
 SphereCollider:
   m_ObjectHideFlags: 0
