@@ -6,6 +6,7 @@ public class EnemySparks : MonoBehaviour
 {
     public TrackController[] tracks;
     public SparkController sparkController;
+    public Transform spawnPoint;
     private bool isRunningCoroutine;
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class EnemySparks : MonoBehaviour
     IEnumerator CreateSpark()
     {
         yield return new WaitForSeconds(Random.Range(0f, 2f));
-        SparkController spark = Instantiate(sparkController, transform.position, Quaternion.identity);
+        SparkController spark = Instantiate(sparkController, spawnPoint.position, Quaternion.identity);
         spark.SetEnergy(RndSparkCharge());
         spark.track = tracks[Random.Range(0, 3)];
         isRunningCoroutine = false;
