@@ -23,10 +23,23 @@ public class EnemySparks : MonoBehaviour
     IEnumerator CreateSpark()
     {
         yield return new WaitForSeconds(Random.Range(0f, 2f));
-        SparkController spark = Instantiate(sparkController, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        spark.SetEnergy(Random.Range(1, 11));
+        SparkController spark = Instantiate(sparkController, transform.position, Quaternion.identity);
+        spark.SetEnergy(RndSparkCharge());
         spark.track = tracks[Random.Range(0, 3)];
-        //spark.transform.tag = "EnemySpark";
         isRunningCoroutine = false;
+    }
+
+    private int RndSparkCharge() {
+        int rndNumber = Random.Range(1, 4);
+        switch (rndNumber) {
+            case 1:
+                return 1;
+            case 2:
+                return 3;
+            case 3:
+                return 7;
+            default:
+                return 0;
+		}
     }
 }

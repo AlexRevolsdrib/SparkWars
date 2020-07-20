@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 40ecb4d3117a841e78160239f00218fd
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/TimeIsOver.unity
+    guid: 2b4d9d9e3570346a78590507a6fc8581
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 25aa462ce0811424fa3cc4956c3f1ad1
   m_configObjects: {}
